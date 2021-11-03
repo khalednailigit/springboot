@@ -17,20 +17,22 @@ public class Etudiant_serviceImp implements Etudiant_Service {
 
 
     @Autowired
-    Etudiant_Repository agent ;
+    Etudiant_Repository etudiant_Repository ;
 
     @Override
     public Etudiant add_entity(Etudiant e) {
-        return agent.save(e);
+        return etudiant_Repository.save(e);
     }
 
+
+
     @Override
-    public Optional<Etudiant> find_entity(long id) {
-        return Optional.empty();
+    public List<Etudiant> find_entity(String name) {
+        return etudiant_Repository.findByFirstname(name);
     }
 
     @Override
     public List<Etudiant> findAll() {
-       return agent.findAll();
+       return etudiant_Repository.findAll();
     }
 }

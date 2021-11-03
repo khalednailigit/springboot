@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class controller {
     @Autowired
-    Etudiant_Service agent  ;
+    Etudiant_Service etudiant_Service  ;
 
     @GetMapping("/test")
     public Etudiant test(){
@@ -20,12 +20,16 @@ public class controller {
         e1.setFirstname("khaled");
         e1.setLastname("naili");
         Etudiant_serviceImp serviceImp = new Etudiant_serviceImp();
-        return agent.add_entity(e1);
+        return etudiant_Service.add_entity(e1);
     }
     @GetMapping("/users")
     public List<Etudiant> getAllUsers() {
-        return agent.findAll();
+        return etudiant_Service.findAll();
     }
 
+    @GetMapping("/findUser")
+    public List<Etudiant> findUser() {
+        return etudiant_Service.find_entity("khaled");
+    }
 
 }

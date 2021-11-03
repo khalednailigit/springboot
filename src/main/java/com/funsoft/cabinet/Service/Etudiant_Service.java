@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface Etudiant_Service {
     public Etudiant add_entity(Etudiant e);
-    public Optional<Etudiant> find_entity(long id);
+    public List<Etudiant> find_entity(String name);
     public List<Etudiant> findAll();
 
 }
