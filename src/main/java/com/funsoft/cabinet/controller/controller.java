@@ -4,6 +4,7 @@ import com.funsoft.cabinet.Service.Etudiant_Service;
 import com.funsoft.cabinet.Service.Etudiant_serviceImp;
 import com.funsoft.cabinet.model.Etudiant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,7 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @RestController
-public class controller {
+public class controller implements ErrorController  {
+    private static final String PATH = "/error";
+
+
     @Autowired
     Etudiant_Service etudiant_Service  ;
 
@@ -49,5 +53,14 @@ public class controller {
         return model;
 
     }
+    @RequestMapping(value = "/index")
+    public ModelAndView sayhello() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("users","lst");
+        model.setViewName("index");
+        return model;
+
+    }
+
 
 }
