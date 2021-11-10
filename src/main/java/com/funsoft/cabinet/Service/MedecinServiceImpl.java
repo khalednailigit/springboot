@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MedecinServiceImpl implements MedecinService{
+public class MedecinServiceImpl implements MedecinService {
 
 
     @Autowired
@@ -17,7 +17,7 @@ public class MedecinServiceImpl implements MedecinService{
 
     @Override
     public void saveorupadte(Medecin m) {
-               agent.save(m) ;
+        agent.save(m);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class MedecinServiceImpl implements MedecinService{
 
     @Override
     public void delete(long id) {
-        agent.deleteById(id);        
+        agent.deleteById(id);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class MedecinServiceImpl implements MedecinService{
 
     @Override
     public List<Medecin> recherche_avancee(String spec, String nom) {
-        return agent.advanced_search(spec, "%"+nom+"%");
+        return agent.advanced_search(spec, "%" + nom + "%");
     }
-    
+
 }
