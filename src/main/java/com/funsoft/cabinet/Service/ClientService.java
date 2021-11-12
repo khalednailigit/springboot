@@ -1,4 +1,4 @@
-package com.funsoft.cabinet.Service;
+package com.funsoft.cabinet.service;
 
 import java.util.List;
 
