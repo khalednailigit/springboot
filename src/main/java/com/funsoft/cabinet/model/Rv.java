@@ -10,7 +10,8 @@ public class Rv {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private  String sjour ;
+    @Transient
+    private String sjour;
 
     private LocalDateTime jour;
 
@@ -57,5 +58,13 @@ public class Rv {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public String getSjour() {
+        return sjour;
+    }
+
+    public void setSjour(String sjour) {
+        this.sjour = sjour;
     }
 }
