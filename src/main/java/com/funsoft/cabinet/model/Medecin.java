@@ -1,5 +1,7 @@
 package com.funsoft.cabinet.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -7,7 +9,7 @@ import java.util.List;
 @Table(name="medecins")
 public class Medecin {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String nom;
@@ -48,7 +50,7 @@ public class Medecin {
     public void setSpecialite(String specialite) {
         this.specialite = specialite;
     }
-
+@JsonBackReference
     @OneToMany(mappedBy = "medecin",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Rv> rdvs;
 

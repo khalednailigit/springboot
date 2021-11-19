@@ -19,28 +19,37 @@
             <p align="center"> Formulaire Médecin</p>
             <hr>
 
-            <form th:object="${RdvForm}" method="post" th:action="@{/rdvs/save}">
+            <form th:object="${MedecinForm}" method="post" th:action="@{/doctors/save}">
 
                 <div hidden>
                     <input type="text" id="id" th:field="*{id}">
                 </div>
 
                 <div class="form-group">
-                    <label for="sjour">Date</label>
-                    <input type="datetime-local" class="form-control" id="sjour" th:field="*{sjour}">
-                </div>
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" th:field="*{nom}">
+                    <small>
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('nom')}"
+                             th:errors="*{nom}"></div>
 
-                <div class="form-group">
-                    <label for="medecin">Medecin</label>
-                    <select class="form-control" id="medecin" th:field="*{medecin.id}">
-                        <option th:each="m : ${medecins}"  th:value="${m.id}" th:utext="${m.nom}+' '+${m.prenom}" ></option>
-                    </select>
+                    </small>
                 </div>
-
                 <div class="form-group">
-                    <label for="medecin">Medecin</label>
-                    <select class="form-control" id="client" th:field="*{client.id}">
-                        <option th:each="m : ${clients}"  th:value="${m.id}" th:utext="${m.nom}+' '+${m.prenom}" ></option>
+                    <label for="prenom">Prenom</label>
+                    <input type="text" class="form-control" id="prenom" th:field="*{prenom}">
+                    <small>
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('prenom')}"
+                             th:errors="*{prenom}"></div>
+
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Specialité</label>
+                    <select class="form-control" id="specialite" th:field="*{specialite}">
+                        <option value="Spec 1">Spec 1</option>
+                        <option value="Spec 2">Spec 2</option>
+                        <option value="Spec 3">Spec 3</option>
+
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

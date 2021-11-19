@@ -1,6 +1,9 @@
 package com.funsoft.cabinet.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.util.List;
 
@@ -8,14 +11,24 @@ import java.util.List;
 @Table(name="clients") // pour renomer la table
 public class Client {
     @Id // Primary key
-    @GeneratedValue(strategy = GenerationType.AUTO) // auto-increment
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto-increment
     private long id;
 
+    @NotNull
+    @NotBlank
+    @NotEmpty
+    @Size(min=3,max=10,message = "la taille doit être entre 3 et 10")
+    @Pattern(regexp = "[a-zA-Z]+",message="le nom ne doit que des alphabets")
     @Column(name = "nom_client") // pour modifier le nom de la colonne de la table
     private String nom;
 
+    @NotEmpty
+    @Size(min=3,max=10,message = "la taille doit être entre 3 et 10")
+    @Pattern(regexp = "[a-zA-Z]+",message="le prenom ne doit que des alphabets")
     @Column(name = "prenom_client")
     private String prenom;
+
+
 
     public Client() {
     }
@@ -43,7 +56,7 @@ public class Client {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
-
+    @JsonBackReference
     @OneToMany(mappedBy = "client",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Rv> rdvs;
 
