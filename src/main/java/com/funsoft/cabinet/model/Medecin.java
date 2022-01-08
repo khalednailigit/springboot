@@ -50,7 +50,7 @@ public class Medecin {
     public void setSpecialite(String specialite) {
         this.specialite = specialite;
     }
-@JsonBackReference
+    @JsonBackReference
     @OneToMany(mappedBy = "medecin",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Rv> rdvs;
 
