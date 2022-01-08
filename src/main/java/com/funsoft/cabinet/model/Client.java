@@ -56,6 +56,7 @@ public class Client {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
+
     @JsonBackReference
     @OneToMany(mappedBy = "client",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Rv> rdvs;

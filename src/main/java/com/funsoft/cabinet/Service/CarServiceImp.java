@@ -3,9 +3,11 @@ package com.funsoft.cabinet.service;
 import com.funsoft.cabinet.model.Car;
 import com.funsoft.cabinet.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CarServiceImp implements CarService {
 
     @Autowired // Automatic write and read ( injection d'un objet)

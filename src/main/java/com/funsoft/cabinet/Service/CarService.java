@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface CarService {
     public void saveorupdate(Car c);
     public Car getById(long idc);
